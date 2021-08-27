@@ -1,6 +1,9 @@
 <template>
 <div>
-  <component v-bind:is="component.cpn" v-bind="component" v-for="component in components" :key="component.name" />
+  <div @click="switchComponent()" class="cursor-pointer text-sm text-center py-2 px-6 bg-yellow-300 rounded-sm" tabindex="0" type="button" >swap component</div>
+  <keep-alive>
+    <component :is="activeComponent.cpn" v-bind="activeComponent" />
+  </keep-alive>
 </div>
 </template>
 
@@ -17,7 +20,18 @@ export default {
   // You can call them by name or by components, even by renaming them
   // you can even pass props to them with the v-bind
   data: () => ({
-    components : [{cpn: 'kek', title: 'Counter'}, {cpn: 'kekw', name: 'Todo'},]
-  })
+    components : [{cpn: 'kek', title: 'Counter'}, {cpn: 'kekw', name: 'Todo'}],
+    component: 0
+  }),
+  methods:{
+    switchComponent(){
+      this.component++
+    }
+  },
+  computed:{
+    activeComponent(){
+      return this.components[this.component%2]
+    }
+  }
 }
 </script>
