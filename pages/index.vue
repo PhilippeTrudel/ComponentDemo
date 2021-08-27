@@ -8,13 +8,11 @@
 </template>
 
 <script>
-import Counter from '~/components/sections/counter'
-import Todo from '~/components/sections/todo'
 
 export default {
   components:{
-    'kek': Counter,
-    'kekw' : Todo
+    'kek': () => import(/* webpackChunkName: "haha-im-a-counter" */ '~/components/sections/counter'),
+    'kekw' : () => import(/* webpackChunkName: "watachi-wa-counter-desu" */ '~/components/sections/todo')
   },
 
   // You can call them by name or by components, even by renaming them
