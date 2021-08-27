@@ -10,13 +10,13 @@ import Todo from '~/components/sections/todo'
 
 export default {
   components:{
-    Counter,
-    Todo
+    'kek': Counter,
+    'kekw' : Todo
   },
 
-  // You can call them by name or by components
+  // You can call them by name or by components, even by renaming them
   data: () => ({
-    components : ['Todo', "Counter"]
+    components : ["kek", 'kekw',]
   })
 }
 </script>
