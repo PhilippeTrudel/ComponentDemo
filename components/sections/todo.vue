@@ -10,7 +10,7 @@
     <div class="w-72 mx-auto py-72 bg-gray-900 flex flex-col justify-center items-center rounded-lg shadow-lg" >
       <div v-for="todo in todos" :key="todo" >
         {{ todo }}
-      </div> 
+      </div>
     </div>
   </div>
 </div>
@@ -18,22 +18,22 @@
 
 <script>
 export default {
-      props:{
-        name:{
-            type: String,
-            required : false,
-            default: '名前名とは何ですか？'
-        }
-    },
-  data: () =>({
+  props: {
+    name: {
+      type: String,
+      required: false,
+      default: '名前名とは何ですか？'
+    }
+  },
+  data: () => ({
     todoInput: '',
     todos: []
   }),
-  methods:{
-    addTodo(){
-      if(this.todoInput !== ''){
+  methods: {
+    addTodo () {
+      if (this.todoInput !== '') {
         this.todos.push(this.todoInput)
-        this.todoInput = '' 
+        this.todoInput = ''
       }
     }
   }
