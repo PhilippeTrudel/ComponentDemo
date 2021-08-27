@@ -1,7 +1,6 @@
 <template>
 <div>
-  <component v-bind:is="component" />
-  <component v-bind:is="component2" />
+  <component v-bind:is="component" v-for="component in components" :key="component" />
 </div>
 </template>
 
@@ -14,9 +13,10 @@ export default {
     Counter,
     Todo
   },
+
+  // You can call them by name or by components
   data: () => ({
-    component: Counter,
-    component2: Todo
+    components : ['Todo', "Counter"]
   })
 }
 </script>
